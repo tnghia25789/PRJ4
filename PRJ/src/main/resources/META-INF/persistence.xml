@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="fpt.aptech_PRJ_jar_0.0.1-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>fpt.aptech.PRJ.Entities.Admin</class>
+    <class>fpt.aptech.PRJ.Entities.Producer</class>
+    <class>fpt.aptech.PRJ.Entities.Sysdiagrams</class>
+    <class>fpt.aptech.PRJ.Entities.Productcategory</class>
+    <class>fpt.aptech.PRJ.Entities.Age</class>
+    <class>fpt.aptech.PRJ.Entities.Itemcart</class>
+    <class>fpt.aptech.PRJ.Entities.Productviewed</class>
+    <class>fpt.aptech.PRJ.Entities.Orderdetail</class>
+    <class>fpt.aptech.PRJ.Entities.Member1</class>
+    <class>fpt.aptech.PRJ.Entities.Gender</class>
+    <class>fpt.aptech.PRJ.Entities.Product</class>
+    <class>fpt.aptech.PRJ.Entities.Rating</class>
+    <class>fpt.aptech.PRJ.Entities.Qa</class>
+    <class>fpt.aptech.PRJ.Entities.Order1</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=ToysStore"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="123"/>
+    </properties>
+  </persistence-unit>
+</persistence>
