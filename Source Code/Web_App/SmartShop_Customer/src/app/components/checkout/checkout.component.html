@@ -1,0 +1,152 @@
+<div class="ps-page--simple">
+    <div class="ps-breadcrumb">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li><a  [routerLink]="['/all-product']">Shop</a></li>
+                <li>Checkout</li>
+            </ul>
+        </div>
+    </div>
+    <div class="ps-checkout ps-section--shopping">
+        <div class="container">
+            <div class="ps-section__header">
+                <h1>CHECKOUT</h1>
+            </div>
+            <div class="ps-section__content">
+                <form class="ps-form--checkout" [formGroup]="postForm">
+                    <div class="row">
+                        <div class="col-xl-7 col-lg-8 col-md-12 col-sm-12  ">
+                            <div class="ps-form__billing-info">
+                                <h3 class="ps-form__heading">Shipping Information</h3>
+                                <div class="form-group">
+                                    <label>Full Name<sup style="color: red">*</sup>
+                                    </label>
+                                    <div class="form-group__content">
+                                        <input class="form-control" type="text" [value]="cart.user.name" readonly placeholder="Please Enter Your Fullname">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number<sup style="color: red">*</sup>
+                                    </label>
+                                    <div class="form-group__content">
+                                        <input
+                                        class="form-control"
+                                        type="text"
+                                        [ngClass]="{'is-invalid':postForm.get('phone')?.touched && postForm.get('phone')?.invalid}"
+                                        placeholder="Please Enter Your Phone Number"
+                                        formControlName="phone">
+                                        <small class="invalid-feedback">Your phone number is invalid !</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>City<sup style="color: red">*</sup>
+                                    </label>
+                                    <div class="form-group__content">
+                                        <select style="font-size: 14px;" class="product-short-select custom-select" id="province" (change)="setProvinceCode($event.target)" formControlName="province"
+                                        [ngClass]="{'is-invalid':postForm.get('province')?.touched && postForm.get('province')?.invalid}">
+                                            <option value="0" selected disabled>cities</option>
+                                            <option *ngFor="let item of provinces" [value]="item.code">{{item.name}}</option>
+                                        </select>
+                                        <small class="invalid-feedback">Please choose your city !</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>District<sup style="color: red">*</sup>
+                                    </label>
+                                    <div class="form-group__content">
+                                        <select style="font-size: 14px;" class="product-short-select custom-select" id="district" (change)="setDistrictCode($event.target)" formControlName="district"
+                                        [ngClass]="{'is-invalid':postForm.get('district')?.touched && postForm.get('district')?.invalid}">
+                                        <option value="0" selected disabled>districts</option>
+                                        <option *ngFor="let item of districts" [value]="item.code">{{item.name}}</option>
+                                        </select>
+                                        <small class="invalid-feedback">Please choose your district !</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ward<sup style="color: red">*</sup>
+                                    </label>
+                                    <div class="form-group__content">
+                                        <select style="font-size: 14px;" class="product-short-select custom-select" id="ward" (change)="setWardCode($event.target)" formControlName="ward"
+                                            [ngClass]="{'is-invalid':postForm.get('ward')?.touched && postForm.get('ward')?.invalid}">
+                                            <option value="0" selected disabled>wards</option>
+                                            <option *ngFor="let item of wards" [value]="item.code">{{item.name}}</option>
+                                        </select>
+                                        <small class="invalid-feedback">Please choose your ward !</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>House Number<sup style="color: red">*</sup>
+                                    </label>
+                                    <div class="form-group__content">
+                                        <input
+                                        class="form-control"
+                                        type="text"
+                                        formControlName="number"
+                                        [ngClass]="{'is-invalid':postForm.get('number')?.touched && postForm.get('number')?.invalid}" placeholder="House Number">
+                                        <small class="invalid-feedback">Please enter your house number</small>
+                                    </div>
+                                </div>
+                                <h3 class="mt-40">More Information</h3>
+                                <div class="form-group">
+                                    <!-- <label>Note For Shipping</label> -->
+                                    <div class="form-group__content">
+                                        <textarea class="form-control" rows="7" placeholder="Notes For Shipping"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-4 col-md-12 col-sm-12  ">
+                            <div class="ps-form__total">
+                                <h3 class="ps-form__heading">Order Summary</h3>
+                                <div class="content">
+                                    <div class="ps-block--checkout-total">
+                                        <div class="ps-block__content">
+                                            <table class="table ps-block__products">
+                                                <thead>
+                                                  <tr>
+                                                    <td><h4>Products</h4></td>
+                                                    <td><h4>Subtotal</h4></td>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let item of cartDetails, index as i">
+                                                        <td>
+                                                            <a href="javascript:void(0);"> {{item.product.name}} × {{item.quantity}}</a>
+                                                            <p>Category:<strong> {{item.product.category.categoryName}}</strong></p>
+                                                        </td>
+                                                        <td>{{item.price | currency:'USD'}}</td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                  <tr>
+                                                    <td><h4>Subtotal: </h4></td>
+                                                    <td><h4>{{amountReal | currency:'USD'}}</h4></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><h4>Savings: </h4></td>
+                                                    <td><h4>{{discount | currency:'USD'}}</h4></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><h3>Order Total: </h3></td>
+                                                    <td><h3 style="color: red;">{{amount | currency:'USD'}}</h3></td>
+                                                  </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <p style="text-align: center;">Cash On Delivery</p>
+                                    <a class="ps-btn ps-btn--fullwidth" href="javascript:void(0);" (click)="checkOut()">PROCEED TO PAYMENT</a>
+                                    <br>
+                                    <p style="text-align: center;">OR</p>
+                                    <p style="text-align: center;">Payment with Paypal</p>
+                                    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

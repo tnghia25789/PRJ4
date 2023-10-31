@@ -1,0 +1,50 @@
+Admin : 	linhnmts2006016@fpt.edu.vn			123456
+
+Customer :	diepmocphong@gmail.com				123456
+
+
+
+Account test:   
+Name:		Diep Lam Anh
+Email:		smartshop.boss2023@gmail.com			Admin@123
+Pass:		123456
+Address:	145 Ly Thai To
+Phone:		0968111111
+
+
+Name:		Ung Hoang Phuc	
+Email:		smartshop.cus2023@gmail.com			Admin@123		
+Pass:		123456
+Address:	999 Lac Long Quan		
+Phone:		0934555555
+
+
+
+Product Test: 
+
+Name :	 		iPhone 14 Pro Max 1TB 			(>4)
+Quantity:		100					(>1)
+Des:			The iPhone 14 Pro Max is Apple's most advanced smartphone to date.
+Available in a 1TB storage option for the first time, it offers massive space to hold your entire digital life.
+
+With 1 terrabyte (1TB) of internal memory, the iPhone 14 Pro Max gives you incredible storage capacity that can easily 
+store thousands of photos, videos, apps and more with room to spare. That's over 500 hours of HD video or 3 million 
+photos that you can keep permanently on your device.
+Price:			1790					(>10)
+Discount:		10
+
+
+Category Test
+
+Name:			Gear Gaming
+
+
+Trang dang nhap tai khoan Paypal	https://sandbox.paypal.com
+
+Paypal Shop :	sb-43p1k527766705@business.example.com		VT4*v8$M
+
+Paypal Cust :	sb-tmqbb27766731@personal.example.com		^$fh1aF-
+
+
+Trang dang nhap Developer Paypal	https://developer.paypal.com
+		diepmocphong@gmail.com				test@123
